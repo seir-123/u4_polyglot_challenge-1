@@ -14,8 +14,12 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
+def add_list(nums) :
+    SUM = 0
+    for x in nums :
+        SUM += x
+    print(SUM)
 #-----------------------------------------------
-
 
 
 
@@ -31,8 +35,16 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
+def remove_ends(line) :
+    if len(line) < 3 :
+        print('')
+    else :
+        def remove() :
+          new_line = line.rstrip(line[-1])
+          new_line = new_line.lstrip(line[0])
+          return new_line
+        print(remove())
 #-----------------------------------------------
-
 
 
 # Challenge 3: is_palindrome
@@ -50,6 +62,16 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
+def is_palindrome(line) :
+    if len(line) == 1 or len(line) == 0 :
+         print(True)
+    else :
+        no_spaces = line.replace(" ", "").lower()
+        line_backwards = no_spaces[::-1]
+        if no_spaces == line_backwards :
+            print(True)
+        else :
+            print(False)
 #-----------------------------------------------
 
 
@@ -68,6 +90,17 @@
 
 #-----------------------------------------------
 # Solution goes here ->
+def is_prime(num) :
+    if num <= 1 :
+      print(False)
+    else :
+        for x in range(2, int(num/2) + 1) :
+          if num % x == 0 :
+              print(False)
+              break
+          else :
+              print(True)
+              break
 #-----------------------------------------------
 
 
@@ -79,17 +112,30 @@
 
 # Your function should take the list and the user's homestate as arguments
 
-# shopping_cart = [ 
-#   {"item": "headphones", "price": 25},
-#   {"item": "speakers", "price": 40 },
-#   {"item": "microphone", "price": 70},
-#   {"item": "lamp", "price": 15 },
-#   {"item": "tower fan", "price": 35 },
-# ]
+shopping_cart = [ 
+  {"item": "headphones", "price": 25},
+  {"item": "speakers", "price": 40 },
+  {"item": "microphone", "price": 70},
+  {"item": "lamp", "price": 15 },
+  {"item": "tower fan", "price": 35 },
+]
 
 
 #-----------------------------------------------
 # Solution Goes Here ->
+def total_checkout_cost(cart, state) :
+    total = 0
+    for x in cart :
+        total += (x.get('price') * 1.085)
+    total = round(total, 2)
+    if state.upper() == ('HI' or 'AK' or 'TX' or 'FL') :
+        total += 10
+        print(total)
+    elif state.upper() == ('AL' or 'MS' or 'NV' or 'IL') :
+        total += 5
+        print(total)
+    else :
+        print(total)
 #-----------------------------------------------
 
 
@@ -107,6 +153,18 @@
 
 #-----------------------------------------------
 # Solution Goes Here ->
+def fizz_buzz(num) :
+    if type(num) == int :
+        if num % 3 == 0 and num % 5 == 0 : 
+            print('FizzBuzz')
+        elif num % 3 == 0 :
+            print('Fizz')
+        elif num % 5 == 0 :
+            print('Buzz')
+        else :
+            print(num)
+    else :
+        print(num + 'is not a number.')
 #-----------------------------------------------
 
 
@@ -146,4 +204,27 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
+def chess_board(rows, columns) :
+    chessboard = list()
+    tracker = 0 
+    for x in range(0, rows) :
+        row_list = list()
+        for x in range(0, columns) :
+            if tracker == 0 :
+                if len(row_list) % 2 == 0 :
+                    row_list.append("O")
+                else :
+                    row_list.append("X")
+            else :
+                if len(row_list) % 2 == 0 :
+                    row_list.append("X")
+                else :
+                    row_list.append("O")
+        if tracker == 0 :
+            tracker = 1
+        else :
+            tracker = 0
+        chessboard.append(row_list)
+    print(chessboard)
+chess_board(7,3)
 #-----------------------------------------------
