@@ -219,9 +219,3 @@ def chessboard(a,b):
     return board
 #-----------------------------------------------
 chessboard(3,7)
-
-
-import pandas as pd
-
-df = pd.read_csv('Pokemon.csv')
-print(df.tail())
