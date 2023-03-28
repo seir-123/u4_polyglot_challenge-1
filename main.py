@@ -13,9 +13,22 @@
 # add("peanut_butter", "marshmellow_fluff") //=> NaN
 
 #-----------------------------------------------
-# Solution Goes Here - >
-#-----------------------------------------------
+#def add_list(*args):
+#    return sum(args)
+#def add_list(*args):
+ #   if not args:
+  #      return 0
+  #  return sum(args)
+#print(add_list())
+#def add_list(*args):
+ #   for arg in args:
+ #       if not isinstance(arg, (int, float)):
+  #          return "NaN"
+  #  return sum(args)
+#print(add_list(1, 2, 'three'))
 
+#-----------------------------------------------
+#https://www.freecodecamp.org/news/args-and-kwargs-in-python/
 
 
 
@@ -31,6 +44,11 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
+#def remove_ends(s):
+ ##   return s[1:-1]
+#print(remove_ends('python'))
+# result ytho 
+
 #-----------------------------------------------
 
 
@@ -50,6 +68,11 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
+#def is_palindrome(s):
+ #   return s == s[::-1]
+#print(is_palindrome('hello')) 
+#print(is_palindrome('level')) 
+#print(is_palindrome('')) 
 #-----------------------------------------------
 
 
@@ -68,6 +91,15 @@
 
 #-----------------------------------------------
 # Solution goes here ->
+#def is_prime(n):
+ #   if n < 2:
+ #       return False
+  #  for i in range(2, int(n ** 0.5) + 1):
+  #      if n % i == 0:
+   #         return False
+   # return True
+#print(is_prime(7))
+#print(is_prime(10))
 #-----------------------------------------------
 
 
@@ -79,17 +111,45 @@
 
 # Your function should take the list and the user's homestate as arguments
 
-# shopping_cart = [ 
-#   {"item": "headphones", "price": 25},
-#   {"item": "speakers", "price": 40 },
-#   {"item": "microphone", "price": 70},
-#   {"item": "lamp", "price": 15 },
-#   {"item": "tower fan", "price": 35 },
-# ]
+ #shopping_cart = [ 
+  # {"item": "headphones", "price": 25},
+   #{"item": "speakers", "price": 40 },
+   #{"item": "microphone", "price": 70},
+   #{"item": "lamp", "price": 15 },
+   #{"item": "tower fan", "price": 35 },
+ #]
 
 
 #-----------------------------------------------
 # Solution Goes Here ->
+#def calculate_total_cost(shopping_cart, homestate):
+ #   tax_rate = 0.085  # 8.5% sales tax rate
+    
+    # Calculate total cost of items with sales tax
+  #  subtotal = sum(item['price'] for item in shopping_cart)
+   # tax = subtotal * tax_rate
+    #total = subtotal + tax
+    
+    # Add shipping fee based on homestate
+    #if homestate in ['HI', 'AK', 'TX', 'FL']:
+     #   total += 10
+    #elif homestate in ['AL', 'MS', 'NV', 'IL']:
+     #   total += 5
+    
+   # return total
+
+#shopping_cart = [ 
+#    {"item": "headphones", "price": 25},
+#    {"item": "speakers", "price": 40 },
+ #   {"item": "microphone", "price": 70},
+  #  {"item": "lamp", "price": 15 },
+   # {"item": "tower fan", "price": 35 },
+#]
+
+
+#print(calculate_total_cost(shopping_cart, 'CA')) 
+#print(calculate_total_cost(shopping_cart, 'TX')) 
+
 #-----------------------------------------------
 
 
@@ -107,6 +167,16 @@
 
 #-----------------------------------------------
 # Solution Goes Here ->
+#for num in range(1, 51):
+ #   if num % 3 == 0 and num % 5 == 0:
+  #      print("FizzBuzz")
+   # elif num % 3 == 0:
+    #    print("Fizz")
+    #elif num % 5 == 0:
+     #   print("Buzz")
+    #else:
+     #   print(num)
+
 #-----------------------------------------------
 
 
@@ -146,4 +216,19 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
+def chess_board(rows,cols):
+    board = []
+    for i in range (rows):
+        row = []
+        for j in range (cols):
+            if (i+j) % 2 == 0:
+                row.append("O")
+            else:
+                row.append("X")
+                board.append(row)
+                return board
+            print(chess_board(6, 4))
+
+
+    
 #-----------------------------------------------
