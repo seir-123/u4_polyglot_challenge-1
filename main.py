@@ -13,10 +13,17 @@
 # add("peanut_butter", "marshmellow_fluff") //=> NaN
 
 #-----------------------------------------------
-# Solution Goes Here - >
+def add_list (*nums):
+    sum=0
+    for el in nums:
+        if type (el) != int:
+            print ("NaN")
+            return "NaN"
+        else: sum += el
+        print (sum)
+        return (sum)
 #-----------------------------------------------
-
-
+add_list ('TEST',1,2)
 
 
 # Challenge 2: remove_ends
@@ -30,9 +37,15 @@
 # remove_ends('a'); //=> "" (empty string)
 
 #-----------------------------------------------
-# Solution Goes Here - >
+def remove_ends(word):
+    if len(word) <= 3:
+        print("")
+        return ("")
+    else:
+        newWord = word[1:-1]
+    print (newWord)
 #-----------------------------------------------
-
+remove_ends("Yael")
 
 
 # Challenge 3: is_palindrome
@@ -49,9 +62,23 @@
 # is_palindrome(''); //=> true
 
 #-----------------------------------------------
-# Solution Goes Here - >
+def is_palindrome(word):
+    if len(word) <= 1:
+        return True
+    else:
+        newWord = word.replace(" ",'')
+        backwords = ""
+        for i in range(0,len(newWord)): ## for (let i = 0; i < newWord.length; i++)
+            backwords += newWord[len(newWord) - 1 - i] ## backwords += newWord[newWord.length - 1] 
+        if newWord == backwords:
+            print ("true")
+            return True
+        else:
+            print("false")
+            return False
 #-----------------------------------------------
 
+is_palindrome("racecar")
 
 
 # Challenge 4: is_prime
@@ -67,31 +94,55 @@
 # is_prime(200) //=> false
 
 #-----------------------------------------------
-# Solution goes here ->
+def is_prime (num):
+    for x in range (2, num):
+        if num % x == 0:
+            print ("false")
+            return (False)
+    print("Prime!")
+    return (True)
 #-----------------------------------------------
 
-
+is_prime(30)
 
 
 # Challenge 5: total_checkout_cost
 
-# Prompt -> Using this list of dictionary items, write a function to calculate the total cost if there is an 8.5% sales tax attached to each item. Then set up a conditional that adds a $10 Shipping Fee if the user lives in HI, AK, TX, or FL, a $5 Fee for AL, MS, NV, or IL. All other states recieve free shipping. 
+# Prompt -> Using this list of dictionary items, write a function to calculate the total cost if there is an 8.5% sales tax attached to each item. Then set up a conditional that 
+# adds a $10 Shipping Fee if the user lives in HI, AK, TX, or FL, a $5 Fee for AL, MS, NV, or IL. All other states recieve free shipping. 
 
 # Your function should take the list and the user's homestate as arguments
 
-# shopping_cart = [ 
-#   {"item": "headphones", "price": 25},
-#   {"item": "speakers", "price": 40 },
-#   {"item": "microphone", "price": 70},
-#   {"item": "lamp", "price": 15 },
-#   {"item": "tower fan", "price": 35 },
-# ]
+shopping_cart = [ 
+  {"item": "headphones", "price": 25},
+  {"item": "speakers", "price": 40 },
+  {"item": "microphone", "price": 70},
+  {"item": "lamp", "price": 15 },
+  {"item": "tower fan", "price": 35 },
+]
 
 
 #-----------------------------------------------
-# Solution Goes Here ->
+def calcTotal(dictionary, homestate):
+    sum = 0
+    for product in dictionary:
+        product["price"] *= 1.085
+        sum += product["price"]
+    if homestate == 'HI' or homestate == 'AK' or homestate == 'TX' or homestate =='FL':
+        sum += 10
+        print (sum)
+        return (sum)
+    elif homestate =="AL" or homestate =="MS" or homestate == "NV" or homestate=="IL":
+        sum += 5
+        print (sum)
+        return (sum)
+    else:
+        print (sum)
+        return (sum)
+    
+    
 #-----------------------------------------------
-
+calcTotal (shopping_cart, "HI")
 
 # Challenge 6: fizz_buzz
 
@@ -106,9 +157,19 @@
 # fizz_buzz(ham_sandwich) //=> "ham_sandwich is not a Number"
 
 #-----------------------------------------------
-# Solution Goes Here ->
+def fizzbuzz (num):
+    if type(num) != int or type(num) == None:
+        print (f'{num} is not a number')
+        return (f'{num} is not a number')
+    for x in range (0, num):
+        if x % 3 == 0 and x % 5 ==0:
+            print ('FizzBuzz')
+        elif x % 3 == 0:
+            print ('Fizz')
+        elif x % 5 == 0:
+            print ('Buzz')
+        else: print (x)
 #-----------------------------------------------
-
 
 
 
@@ -145,5 +206,23 @@
 
 
 #-----------------------------------------------
-# Solution Goes Here - >
+def makeBoard (row, column):
+    myList = []
+    for x in range (0, row):
+        newList = []
+        if x % 2 == 0:
+            for y in range (0, column):
+                if (y%2 == 0):
+                    newList.append("O")
+                else:
+                    newList.append("X")
+        else:
+            for y in range(0,column):
+                if (y%2 == 0):
+                    newList.append("X")
+                else:
+                    newList.append("O")
+        myList.append(newList)
+    print (myList)
+makeBoard(4,3)
 #-----------------------------------------------
