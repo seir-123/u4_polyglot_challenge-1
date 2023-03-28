@@ -130,7 +130,7 @@ def total_checkout_cost(shopping_cart, homestate):
 # Challenge 6: fizz_buzz
 
 # Prompt -> Write a program that prints the numbers from 1 to 50. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”. For numbers which are multiples of both three and five print “FizzBuzz”
-# If your argument is not a number, return "is not a number"
+# If your argument is not a number, return "is not A umber"
 
 # Examples:
 # fizz_buzz(10) //=> 10 "Buzz"
@@ -219,3 +219,9 @@ def chessboard(a,b):
     return board
 #-----------------------------------------------
 chessboard(3,7)
+
+
+import pandas as pd
+
+df = pd.read_csv('Pokemon.csv')
+print(df.tail())
