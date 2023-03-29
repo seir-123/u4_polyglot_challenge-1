@@ -14,6 +14,20 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
+
+# def add_list(*nums):
+#     total = 0
+#     for n in nums:
+#         if type(n) != str:
+#             total += n
+#             print(total)
+#         else:
+#             print('NaN')
+#     print(total)
+
+
+# add_list()
+
 #-----------------------------------------------
 
 
@@ -31,6 +45,18 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
+
+# my_string = "he"
+
+# def remove_ends(arg):
+#     if len(arg) >= 3:
+#         new_string = arg[1:-1]
+#         print(new_string)
+#     else:
+#         print("")
+
+# remove_ends(my_string)
+
 #-----------------------------------------------
 
 
@@ -50,6 +76,18 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
+
+# def is_palindrome(arg):
+#     reversed_arg = arg[::-1]
+#     if arg == reversed_arg:
+#         print('true')
+#     elif len(arg) == 0 or len(arg) == 1:
+#         print('true')
+#     else:
+#         print('false')
+
+# is_palindrome('')
+
 #-----------------------------------------------
 
 
@@ -68,6 +106,14 @@
 
 #-----------------------------------------------
 # Solution goes here ->
+
+# def is_prime(arg):
+#     if arg !=  and arg/arg == 1:
+#         print('true')
+#     else:
+#         print('false')
+
+# is_prime(4)
 #-----------------------------------------------
 
 
@@ -79,6 +125,12 @@
 
 # Your function should take the list and the user's homestate as arguments
 
+
+
+
+#-----------------------------------------------
+# Solution Goes Here ->
+
 # shopping_cart = [ 
 #   {"item": "headphones", "price": 25},
 #   {"item": "speakers", "price": 40 },
@@ -87,9 +139,21 @@
 #   {"item": "tower fan", "price": 35 },
 # ]
 
+# def calculate_total_cost(items, state):
+#     total_cost = 0
+#     tax_rate = 0.085
+    
+#     for item in items:
+#         item_cost = item['price'] * (1 + tax_rate)
+#         total_cost += item_cost
+#         if state in ['HI', 'AK', 'TX', 'FL']:
+#             total_cost += 10
+#         elif state in ['AL', 'MS', 'NV', 'IL']:
+#             total_cost += 5
 
-#-----------------------------------------------
-# Solution Goes Here ->
+#     print(total_cost)
+
+# calculate_total_cost(shopping_cart, 'HI')
 #-----------------------------------------------
 
 
@@ -107,6 +171,22 @@
 
 #-----------------------------------------------
 # Solution Goes Here ->
+
+# def fizz_buzz(arg):
+#     if type(arg) != int:
+#         print(f"{arg} is not a Number")
+#     elif arg % 3 == 0 and arg % 5 == 0:
+#         print(f"{arg} FizzBuzz")
+#     elif arg % 3 == 0:
+#         print(f"{arg} Fizz")
+#     elif arg % 5 == 0:
+#         print(f"{arg} Buzz")
+#     else:
+#         print(f"{arg}")
+
+
+# fizz_buzz('ben')
+
 #-----------------------------------------------
 
 
@@ -146,4 +226,21 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
+
+def chess_board(rows, columns):
+    board = []
+    for x in range(rows):
+        row = []
+        for y in range(columns):
+            if (x+y) % 2 == 0:
+                row.append("O")
+            else:
+                row.append("X")
+        board.append(row)
+        
+    return board
+
+print(chess_board(6, 4))
+print(chess_board(3, 7))
+
 #-----------------------------------------------
