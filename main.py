@@ -16,11 +16,18 @@
 
 def add_list(*args):
     sum = 0
+    if len(args) == 0:
+        return sum
     for arg in args:
         if not isinstance(arg, (int, float)):
             return "NaN"
-        sum + arg
-        return sum
+        sum += arg
+    return sum
+
+print(add_list(1))
+print(add_list(1,50, 1.23))
+print(add_list(7, -12))
+print(add_list("peanut_butter", "marshmellow_fluff"))
 
 #-----------------------------------------------
 
@@ -45,6 +52,9 @@ def remove_ends(str):
     else: 
         return str[1:-1]
 
+print(remove_ends('Led Zeppelin Rules'))
+print(remove_ends('a'))
+
 #-----------------------------------------------
 
 
@@ -68,6 +78,11 @@ def is_palindrome(str):
     str = str.lower().replace(" ", "")
     return str == str[::-1]
 
+print(is_palindrome('SEI Rocks'))
+print(is_palindrome('rotor'))
+print(is_palindrome('A nut for a jar of tuna'))
+print(is_palindrome(''))
+
 #-----------------------------------------------
 
 
@@ -89,10 +104,16 @@ def is_palindrome(str):
 def is_prime(n):
     if n <= 1:
         return False
-    for i in range(2, int(**0.5) + 1):
+    for i in range(2, int(n**0.5) + 1):
         if n % i == 0:
             return False
         return True
+
+print(is_prime(2))
+print(is_prime(3))
+print(is_prime(4))
+print(is_prime(29))
+print(is_prime(200))
 
 #-----------------------------------------------
 
@@ -133,6 +154,16 @@ def c_total_cost(shopping_cart, state):
     
     return total_cost
 
+shopping_cart = [ 
+  {"item": "headphones", "price": 25},
+  {"item": "speakers", "price": 40 },
+  {"item": "microphone", "price": 70},
+  {"item": "lamp", "price": 15 },
+  {"item": "tower fan", "price": 35 },
+]
+
+print(c_total_cost(shopping_cart, 'HI'))
+
 #-----------------------------------------------
 
 
@@ -162,8 +193,11 @@ def fizz_buzz(n):
     else:
         return str(n)
 
-for i in range(1, 51):
-    print(fizz_buzz(i))
+print(fizz_buzz(10))
+print(fizz_buzz(30))
+print(fizz_buzz(18))
+print(fizz_buzz(22))
+print(fizz_buzz(2))
 
 #-----------------------------------------------
 
@@ -207,13 +241,16 @@ for i in range(1, 51):
 def create_chessboard(r, c):
     board = []
     for i in range(r):
-        c = []
+        row = []
         for j in range(c):
             if (i + j) % 2 == 0:
-                r.append('O')
+                row.append('O')
             else:
-                r.append('X')
-        board.append(r)
+                row.append('X')
+        board.append(row)
     return board
+
+print(create_chessboard(6, 4))
+print(create_chessboard(3, 7))
 
 #-----------------------------------------------
