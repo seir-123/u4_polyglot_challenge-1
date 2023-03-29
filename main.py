@@ -13,7 +13,15 @@
 # add("peanut_butter", "marshmellow_fluff") //=> NaN
 
 #-----------------------------------------------
-# Solution Goes Here - >
+
+def add_list(*args):
+    sum = 0
+    for arg in args:
+        if not isinstance(arg, (int, float)):
+            return "NaN"
+        sum + arg
+        return sum
+
 #-----------------------------------------------
 
 
@@ -30,7 +38,13 @@
 # remove_ends('a'); //=> "" (empty string)
 
 #-----------------------------------------------
-# Solution Goes Here - >
+
+def remove_ends(str):
+    if len(str) < 3: 
+        return ""
+    else: 
+        return str[1:-1]
+
 #-----------------------------------------------
 
 
@@ -49,7 +63,11 @@
 # is_palindrome(''); //=> true
 
 #-----------------------------------------------
-# Solution Goes Here - >
+
+def is_palindrome(str):
+    str = str.lower().replace(" ", "")
+    return str == str[::-1]
+
 #-----------------------------------------------
 
 
@@ -67,7 +85,15 @@
 # is_prime(200) //=> false
 
 #-----------------------------------------------
-# Solution goes here ->
+
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(**0.5) + 1):
+        if n % i == 0:
+            return False
+        return True
+
 #-----------------------------------------------
 
 
@@ -89,7 +115,24 @@
 
 
 #-----------------------------------------------
-# Solution Goes Here ->
+
+def c_total_cost(shopping_cart, state):
+    subtotal = sum(item["price"] for item in shopping_cart)
+
+    tax_rate = 0.085
+    tax = subtotal * tax_rate
+
+    if state in ["HI", "AK", "TX", "FL"]:
+        shipping_fee = 10
+    elif state in ["AL", "MS", "NV", "IL"]:
+        shipping_fee = 5
+    else:
+        shipping_fee = 0
+
+    total_cost = subtotal + tax + shipping_fee
+    
+    return total_cost
+
 #-----------------------------------------------
 
 
@@ -106,7 +149,22 @@
 # fizz_buzz(ham_sandwich) //=> "ham_sandwich is not a Number"
 
 #-----------------------------------------------
-# Solution Goes Here ->
+
+def fizz_buzz(n):
+    if not isinstance(n, int):
+        return str(n) + " is not a Number"
+    elif n % 3 == 0 and n % 5 == 0:
+        return str(n) + " FizzBuzz"
+    elif n % 3 == 0:
+        return str(n) + " Fizz"
+    elif n % 5 == 0:
+        return str(n) + " Buzz"
+    else:
+        return str(n)
+
+for i in range(1, 51):
+    print(fizz_buzz(i))
+
 #-----------------------------------------------
 
 
@@ -145,5 +203,17 @@
 
 
 #-----------------------------------------------
-# Solution Goes Here - >
+
+def create_chessboard(r, c):
+    board = []
+    for i in range(r):
+        c = []
+        for j in range(c):
+            if (i + j) % 2 == 0:
+                r.append('O')
+            else:
+                r.append('X')
+        board.append(r)
+    return board
+
 #-----------------------------------------------
