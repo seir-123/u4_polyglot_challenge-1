@@ -14,8 +14,18 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
+def add_list(*nums):
+    if len(nums) == 0:
+        print(0)
+    
+    sum = 0
+    for num in nums:
+        if not isinstance(num, (int,float)):
+            print('NaN')
+        sum += num
+        print(sum)
 #-----------------------------------------------
-
+add_list(2,3)
 
 
 
@@ -31,8 +41,15 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
-#-----------------------------------------------
+def remove_ends(string):
+    if len(string) < 3:
+        return ""
+    else:
+        print(string[1:-1])
+        return string[1:-1]
 
+#-----------------------------------------------
+remove_ends('hello')
 
 
 # Challenge 3: is_palindrome
@@ -50,8 +67,24 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
-#-----------------------------------------------
+def is_palindrome(word):
+    if len(word) <= 1:
+        print(True)
+        return True
+    else:
+        newWord = word.replace(" ", "")
+        backwards = ""
+        for i in range(0,len(newWord)): # for (let i=0; i <newword.egnth; i++)
+            backwards += newWord[len(newWord) - 1 - i]
+        if newWord == backwards:
+            print (True)
+            return True
+        else:
+            print(False)
+            return False
 
+#-----------------------------------------------
+is_palindrome("racecar")
 
 
 # Challenge 4: is_prime
@@ -68,8 +101,15 @@
 
 #-----------------------------------------------
 # Solution goes here ->
-#-----------------------------------------------
+def is_prime(num):
+    for i in range(2, num):
+        if num % i == 0:
+            print(False)
+        else:
+            print("prime")
 
+# #-----------------------------------------------
+is_prime(3)
 
 
 
@@ -79,24 +119,37 @@
 
 # Your function should take the list and the user's homestate as arguments
 
-# shopping_cart = [ 
-#   {"item": "headphones", "price": 25},
-#   {"item": "speakers", "price": 40 },
-#   {"item": "microphone", "price": 70},
-#   {"item": "lamp", "price": 15 },
-#   {"item": "tower fan", "price": 35 },
-# ]
+shopping_cart = [ 
+  {"item": "headphones", "price": 25},
+  {"item": "speakers", "price": 40 },
+  {"item": "microphone", "price": 70},
+  {"item": "lamp", "price": 15 },
+  {"item": "tower fan", "price": 35 },
+]
 
 
 #-----------------------------------------------
 # Solution Goes Here ->
+def calcTotal(dictionary, homestate):
+    sum = 0 
+    for product in dictionary:
+        product["price"] *= .085
+        sum += product["price"]
+    if homestate == "HI" or homestate == "AK" or homestate == "TX" or homestate == "FL":
+        sum += 10
+        print(sum)
+    elif homestate == "AL" or homestate == "MS" or homestate == "NV" or homestate == "IL":
+        sum += 5
+        print(sum)
+    else:
+        print(sum)
 #-----------------------------------------------
-
+calcTotal(shopping_cart, "TX")
 
 # Challenge 6: fizz_buzz
 
 # Prompt -> Write a program that prints the numbers from 1 to 50. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”. For numbers which are multiples of both three and five print “FizzBuzz”
-# If your argument is not a number, return "is not a number"
+# If your argument is not a number, return "is not A umber"
 
 # Examples:
 # fizz_buzz(10) //=> 10 "Buzz"
@@ -107,9 +160,20 @@
 
 #-----------------------------------------------
 # Solution Goes Here ->
+def fizzbuzz(num):
+    if type(num) != int or type(num) == None:
+        print (f'{num} is not a number')
+    for x in range(0,51):
+        if x % 3 == 0 and x % 5 == 0:
+            print('fizzbuzz')
+        elif x % 3 == 0:
+            print("fizz")
+        elif x % 5 == 0:
+            print('buzz')
+        else: print(x)
 #-----------------------------------------------
 
-
+fizzbuzz(5)
 
 
 # Challenge 7 - Chessboard Creator
@@ -146,4 +210,26 @@
 
 #-----------------------------------------------
 # Solution Goes Here - >
+def make_board(row, column):
+    myList = []
+    for x in range(0, row):
+        newList = []
+        if x % 2 == 0:
+            for y in range(0, column):
+                if y % 2 == 0:
+                    newList.append("O")
+                else:
+                    newList.append("X")
+        else:
+            for y in range(0, column):
+                if y % 2 == 0:
+                    newList.append('X')
+                else:
+                    newList.append("O")
+        myList.append(newList)
+    print(myList)
+    return myList
+
+
 #-----------------------------------------------
+make_board(6,4)
