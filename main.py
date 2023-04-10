@@ -5,15 +5,19 @@
 # - If called with no arguments, return 0 (zero).
 # - If any non-number arguments are in the argument, return "NaN"
 
-
-# Examples:
-# add(1) //=> 1
-# add(1,50,1.23) //=> 52.23
-# add(7,-12) //=> -5
-# add("peanut_butter", "marshmellow_fluff") //=> NaN
-
 #-----------------------------------------------
-# Solution Goes Here - >
+def add_list(*numbers):
+    total = 0
+    for num in numbers:
+        if isinstance(num, (int, float)):
+            total += num
+        else:
+            return "NaN"
+    return total
+
+# add(7,-12)
+# add("peanut_butter", "marshmellow_fluff")
+
 #-----------------------------------------------
 
 
@@ -24,13 +28,16 @@
 # Prompt:
 # - Write a function called remove_ends that accepts a single string argument, then returns the a string with the first and last characters removed.
 # - If the length of the string argument is less than 3, return an empty string.
-
-# Examples:
-# remove_ends('Led Zeppelin Rules'); //=> "ed Zeppelin Rule"
-# remove_ends('a'); //=> "" (empty string)
-
 #-----------------------------------------------
-# Solution Goes Here - >
+def remove_ends(string):
+    if len(string) < 3:
+        return ""
+    else:
+        return string[1:-1]
+    
+# remove_ends('Led Zeppelin Rules'); 
+# remove_ends('a');
+
 #-----------------------------------------------
 
 
@@ -42,14 +49,13 @@
 # - A palindrome is a word or phrase that is the same forward or backward.
 # - Casing and spaces are not included when considering whether or not a string is a palindrome.
 # - If the length of the string is 0 or 1, return true.
-# Examples:
-# is_palindrome('SEI Rocks'); //=> false
-# is_palindrome('rotor'); //=> true
-# is_palindrome('A nut for a jar of tuna'); //=> true
-# is_palindrome(''); //=> true
-
 #-----------------------------------------------
-# Solution Goes Here - >
+def is_palindrome(string):
+    string = string.lower().replace(" ", "")
+    return string == string[::-1]
+
+# is_palindrome('SEI Rocks');
+# is_palindrome('rotor'); 
 #-----------------------------------------------
 
 
@@ -59,15 +65,20 @@
 # Prompt:
 # - Write a function named is_prime that returns true when the integer argument passed to it is a prime number and false when the argument passed to it is not prime.
 # - A prime number is a whole number (integer) greater than 1 that is evenly divisible by only itself.
-# Examples:
-# is_prime(2) //=> true
-# is_prime(3) //=> true 
-# is_prime(4) //=> false
-# is_prime(29) //=> true
-# is_prime(200) //=> false
-
 #-----------------------------------------------
-# Solution goes here ->
+def is_prime(number):
+    if number <= 1:
+        return False
+    elif number == 2:
+        return True
+    else:
+        for i in range(2, int(number**0.5)+1):
+            if number % i == 0:
+                return False
+        return True
+    
+# is_prime(3)
+# is_prime(4)
 #-----------------------------------------------
 
 
@@ -79,17 +90,31 @@
 
 # Your function should take the list and the user's homestate as arguments
 
-# shopping_cart = [ 
-#   {"item": "headphones", "price": 25},
-#   {"item": "speakers", "price": 40 },
-#   {"item": "microphone", "price": 70},
-#   {"item": "lamp", "price": 15 },
-#   {"item": "tower fan", "price": 35 },
-# ]
+shopping_cart = [ 
+  {"item": "headphones", "price": 25},
+  {"item": "speakers", "price": 40 },
+  {"item": "microphone", "price": 70},
+  {"item": "lamp", "price": 15 },
+  {"item": "tower fan", "price": 35 },
+]
 
 
 #-----------------------------------------------
-# Solution Goes Here ->
+def total_checkout_cost(items, homestate):
+    total = 0
+    subtotal = sum(item["price"] for item in items)
+    tax = 0.085 * subtotal
+    total = subtotal + tax
+
+    if homestate in {"HI", "AK", "TX", "FL"}:
+        total += 10
+    elif homestate in {"AL", "MS", "NV", "IL"}:
+        total += 5
+
+    return total
+
+# calculate_total_cost(shopping_cart, 'PA')
+# calculate_total_cost(shopping_cart, 'PA')
 #-----------------------------------------------
 
 
@@ -97,16 +122,28 @@
 
 # Prompt -> Write a program that prints the numbers from 1 to 50. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”. For numbers which are multiples of both three and five print “FizzBuzz”
 # If your argument is not a number, return "is not a number"
+#-----------------------------------------------
+def fizzbuzz(number):
+    if not isinstance(number, int):
+        return "is not a number"
+    
+    for i in range(1, number+1):
+        if i % 3 == 0 and i % 5 == 0:
+            print("FizzBuzz")
+        elif i % 3 == 0:
+            print("Fizz")
+        elif i % 5 == 0:
+            print("Buzz")
+        else:
+            print(i)
 
-# Examples:
+
+# fizz_buzz()
 # fizz_buzz(10) //=> 10 "Buzz"
 # fizz_buzz(30) //=> 30 "FizzBuzz"
 # fizz_buzz(18) //=> 18 "Fizz"
 # fizz_buzz(22) //=> 22 ""
 # fizz_buzz(ham_sandwich) //=> "ham_sandwich is not a Number"
-
-#-----------------------------------------------
-# Solution Goes Here ->
 #-----------------------------------------------
 
 
@@ -145,5 +182,19 @@
 
 
 #-----------------------------------------------
-# Solution Goes Here - >
+def chess_board(rows, cols):
+    board = []
+    for x in range(rows):
+        row = []
+        for y in range(cols):
+            if (x+y) % 2 == 0:
+                row.append("O")
+            else:
+                row.append("X")
+        board.append(row)
+    return board
+
+# chessboard = chess_board(6, 4)
+# for row in chessboard:
+#     print(row)
 #-----------------------------------------------
